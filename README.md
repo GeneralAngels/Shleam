@@ -89,7 +89,7 @@ This project is synced to Maven Central, meaning all you have to do in order to 
 
 ```groovy
 dependencies{
-    compile group: 'com.ga2230', name: 'shleam'
+    compile group: 'com.ga2230', name: 'shleam', version: '2020.0.0'
     compile group: 'org.json', name: 'json', version: '20190722'
 }
 ```
