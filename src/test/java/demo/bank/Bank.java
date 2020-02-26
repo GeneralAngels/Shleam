@@ -1,4 +1,4 @@
-package demo;
+package demo.bank;
 
 import com.ga2230.shleam.Shleam;
 import com.ga2230.shleam.base.structure.Function;
