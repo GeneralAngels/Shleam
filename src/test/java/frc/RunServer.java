@@ -1,5 +1,7 @@
+package frc;
+
 import com.ga2230.shleam.advanced.frc.FRCRobot;
-import testbot.Robot;
+import frc.testbot.Robot;
 
 public class RunServer {
 
