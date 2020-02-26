@@ -41,7 +41,7 @@ public class Module {
                 // Create master object
                 JSONObject object = new JSONObject();
                 // Iterate through dictionary
-                module.functions.forEach(object::put);
+                module.variables.forEach(object::put);
                 // Iterate through children
                 for (Module child : module.children) {
                     object.put(child.getID(), createFromModule(child));
