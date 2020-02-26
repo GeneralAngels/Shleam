@@ -3,11 +3,11 @@
  * https://github.com/GeneralAngels/Shleam
  */
 
-package com.ga2230.shleam.communication;
+package com.ga2230.shleam.base.communication;
 
-import com.ga2230.shleam.structure.Module;
-import com.ga2230.shleam.structure.Result;
-import com.ga2230.shleam.utils.Logger;
+import com.ga2230.shleam.base.structure.Module;
+import com.ga2230.shleam.base.structure.Result;
+import com.ga2230.shleam.base.utils.Logger;
 
 import java.io.*;
 import java.net.Socket;

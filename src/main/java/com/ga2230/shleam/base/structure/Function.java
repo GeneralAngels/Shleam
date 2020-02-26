@@ -3,7 +3,7 @@
  * https://github.com/GeneralAngels/Shleam
  */
 
-package com.ga2230.shleam.structure;
+package com.ga2230.shleam.base.structure;
 
 /**
  * This interface is used to define a registerable function.

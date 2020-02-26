@@ -5,8 +5,8 @@
 
 package com.ga2230.shleam;
 
-import com.ga2230.shleam.communication.Server;
-import com.ga2230.shleam.structure.Module;
+import com.ga2230.shleam.base.communication.Server;
+import com.ga2230.shleam.base.structure.Module;
 
 /**
  * This is the launcher for the Shleam framework.

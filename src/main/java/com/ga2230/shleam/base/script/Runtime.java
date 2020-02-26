@@ -3,11 +3,11 @@
  * https://github.com/GeneralAngels/Shleam
  */
 
-package com.ga2230.shleam.script;
+package com.ga2230.shleam.base.script;
 
-import com.ga2230.shleam.structure.Function;
-import com.ga2230.shleam.structure.Module;
-import com.ga2230.shleam.structure.Result;
+import com.ga2230.shleam.base.structure.Function;
+import com.ga2230.shleam.base.structure.Module;
+import com.ga2230.shleam.base.structure.Result;
 
 import java.util.ArrayList;
 import java.util.Arrays;

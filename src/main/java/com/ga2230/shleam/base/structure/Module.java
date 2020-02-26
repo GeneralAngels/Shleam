@@ -3,7 +3,9 @@
  * https://github.com/GeneralAngels/Shleam
  */
 
-package com.ga2230.shleam.structure;
+package com.ga2230.shleam.base.structure;
+
+import com.ga2230.shleam.base.utils.Logger;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,11 +22,49 @@ public class Module {
 
     /**
      * Default constructor, with ID.
+     *
      * @param id Module ID
      */
     public Module(String id) {
         // Set the ID
         this.id = id;
+        // Register functions
+        // Lists all functions and all children
+        register("help", new Function() {
+
+            private static final String LINE_SEPARATOR = "\r\n";
+
+            @Override
+            public Result execute(String parameter) throws Exception {
+                // Initiate a string builder
+                StringBuilder stringBuilder = new StringBuilder();
+                // Append some UI text
+                stringBuilder.append("Showing help for module \"").append(getID()).append("\"").append(LINE_SEPARATOR);
+                stringBuilder.append("Available functions:").append(LINE_SEPARATOR);
+                // List functions
+                Module.this.functions.forEach((s, command) -> {
+                    stringBuilder.append(s).append(LINE_SEPARATOR);
+                });
+                // Append some UI text
+                stringBuilder.append("Adopted children:").append(LINE_SEPARATOR);
+                // List children
+                for (Module module : children) {
+                    stringBuilder.append(module.getID()).append("(").append(module.getClass().getSimpleName()).append(")").append(LINE_SEPARATOR);
+                }
+                // Return result
+                return Result.finished(stringBuilder.toString());
+            }
+        });
+
+        // Logs text to the system output
+        register("log", new Function() {
+            @Override
+            public Result execute(String parameter) throws Exception {
+                // Log with logger
+                Logger.log(getID(), parameter);
+                return Result.finished("Logged");
+            }
+        });
     }
 
     /**
@@ -32,7 +72,7 @@ public class Module {
      *
      * @return Module ID
      */
-    protected String getId() {
+    protected String getID() {
         return this.id;
     }
 

@@ -3,7 +3,7 @@
  * https://github.com/GeneralAngels/Shleam
  */
 
-package com.ga2230.shleam.utils;
+package com.ga2230.shleam.base.utils;
 
 /**
  * This is used to log errors, warnings, and additional information.
