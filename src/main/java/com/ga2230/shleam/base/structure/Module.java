@@ -61,17 +61,17 @@ public class Module {
                 // Initiate a string builder
                 StringBuilder stringBuilder = new StringBuilder();
                 // Append some UI text
-                stringBuilder.append("Showing help for module \"").append(getID()).append("\"").append(LINE_SEPARATOR);
-                stringBuilder.append("Available functions:").append(LINE_SEPARATOR);
+                stringBuilder.append(LINE_SEPARATOR).append("Showing help for module \"").append(getID()).append("\"");
+                stringBuilder.append(LINE_SEPARATOR).append("Available functions:");
                 // List functions
                 Module.this.functions.forEach((key, value) -> {
-                    stringBuilder.append(key).append(LINE_SEPARATOR);
+                    stringBuilder.append(LINE_SEPARATOR).append(" ").append(key);
                 });
                 // Append some UI text
-                stringBuilder.append("Adopted children:").append(LINE_SEPARATOR);
+                stringBuilder.append(LINE_SEPARATOR).append("Adopted children:");
                 // List children
                 for (Module module : children) {
-                    stringBuilder.append(module.getID()).append("(").append(module.getClass().getSimpleName()).append(")").append(LINE_SEPARATOR);
+                    stringBuilder.append(LINE_SEPARATOR).append(" ").append(module.getID()).append(" (").append(module.getClass().getSimpleName()).append(")");
                 }
                 // Return result
                 return Result.finished(stringBuilder.toString());
