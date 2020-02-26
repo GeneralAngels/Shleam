@@ -12,7 +12,7 @@ repositories {
 }
 
 dependencies {
-    compile group: 'org.json', name: 'json', version: '20190722'
+    compile group: 'org.json', name: 'json'
 }
 
 task javadocJar(type: Jar) {
@@ -50,7 +50,7 @@ uploadArchives {
             pom.project {
                 name = rootProject.name
                 description = 'Shleam is a project framework for easily implementing new features to existing projects'
-                url = 'https://github.com/NadavTasher/Shleam'
+                url = 'https://github.com/GeneralAngels/Shleam'
                 licenses {
                     license {
                         name = 'MIT License'
@@ -65,9 +65,9 @@ uploadArchives {
                     }
                 }
                 scm {
-                    connection = 'scm:git:git://github.com/NadavTasher/Shleam.git'
-                    developerConnection = 'scm:git:git://github.com/NadavTasher/Shleam.git'
-                    url = 'https://github.com/NadavTasher/Shleam'
+                    connection = 'scm:git:git://github.com/GeneralAngels/Shleam.git'
+                    developerConnection = 'scm:git:git://github.com/GeneralAngels/Shleam.git'
+                    url = 'https://github.com/GeneralAngels/Shleam'
                 }
             }
         }
