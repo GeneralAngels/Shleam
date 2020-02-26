@@ -1,0 +1,75 @@
+plugins {
+    id 'java'
+    id 'maven'
+    id 'signing'
+}
+
+group = 'com.ga2230'
+version = '2020.0.1'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'commons-codec:commons-codec:20041127.091804'
+}
+
+task javadocJar(type: Jar) {
+    classifier = 'javadoc'
+    from javadoc
+}
+
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+artifacts {
+    archives javadocJar, sourcesJar
+}
+
+signing {
+    sign configurations.archives
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+
+            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+            repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+                authentication(userName: USERNAME, password: PASSWORD)
+            }
+
+            snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
+                authentication(userName: USERNAME, password: PASSWORD)
+            }
+
+            pom.project {
+                name = rootProject.name
+                description = 'Shleam is a project framework for easily implementing new features to existing projects'
+                url = 'https://github.com/NadavTasher/Shleam'
+                licenses {
+                    license {
+                        name = 'MIT License'
+                        url = 'https://choosealicense.com/licenses/mit/'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'NadavTasher'
+                        name = 'Nadav Tasher'
+                        email = 'tashernadav@gmail.com'
+                    }
+                }
+                scm {
+                    connection = 'scm:git:git://github.com/NadavTasher/Shleam.git'
+                    developerConnection = 'scm:git:git://github.com/NadavTasher/Shleam.git'
+                    url = 'https://github.com/NadavTasher/Shleam'
+                }
+            }
+        }
+    }
+}
