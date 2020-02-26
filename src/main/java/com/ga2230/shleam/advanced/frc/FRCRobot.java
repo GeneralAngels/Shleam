@@ -7,12 +7,14 @@ public class FRCRobot extends FRCModule {
 
     protected Runtime autonomous;
 
-    public FRCRobot(String id) {
+    public FRCRobot() {
         super("robot");
         // Initialize Shleam
         Shleam.begin(5800, this);
         // Initialize autonomous
         autonomous = new Runtime(this);
+        // Adopt autonomous
+        adopt(autonomous);
     }
 
     public void autonomousSetup() {

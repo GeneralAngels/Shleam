@@ -6,6 +6,7 @@
 package com.ga2230.shleam.base.structure;
 
 import com.ga2230.shleam.base.utils.Logger;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -29,6 +30,27 @@ public class Module {
         // Set the ID
         this.id = id;
         // Register functions
+        // Returns a full (recursive) telemetry JSON string.
+        register("telemetry", new Function() {
+            @Override
+            public Result execute(String parameter) throws Exception {
+                return Result.finished(createFromModule(Module.this).toString());
+            }
+
+            private JSONObject createFromModule(Module module) {
+                // Create master object
+                JSONObject object = new JSONObject();
+                // Iterate through dictionary
+                Module.this.functions.forEach(object::put);
+                // Iterate through children
+                for (Module child : Module.this.children) {
+                    object.put(child.getID(), createFromModule(child));
+                }
+                // Return result
+                return object;
+            }
+        });
+
         // Lists all functions and all children
         register("help", new Function() {
 
@@ -42,8 +64,8 @@ public class Module {
                 stringBuilder.append("Showing help for module \"").append(getID()).append("\"").append(LINE_SEPARATOR);
                 stringBuilder.append("Available functions:").append(LINE_SEPARATOR);
                 // List functions
-                Module.this.functions.forEach((s, command) -> {
-                    stringBuilder.append(s).append(LINE_SEPARATOR);
+                Module.this.functions.forEach((key, value) -> {
+                    stringBuilder.append(key).append(LINE_SEPARATOR);
                 });
                 // Append some UI text
                 stringBuilder.append("Adopted children:").append(LINE_SEPARATOR);
