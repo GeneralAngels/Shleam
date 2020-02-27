@@ -4,8 +4,22 @@
 Shleam is an overlay library, created by General Angels, to give FRC teams a simple yet powerful platform to base their robots on.
  
  It gives you a recursive project structure with special capabilities such as scripting and network communications.
+ 
+### Examples
+[ShleamBot](https://github.com/GeneralAngels/ShleamBot)
+[ShleamDashboard](https://github.com/GeneralAngels/ShleamDashboard)
 
-#### What does is actually do?
+### Installation
+This project is synced to Maven Central, meaning all you have to do in order to install it is to add it to your `build.grade` file:
+
+```groovy
+dependencies{
+    compile group: 'com.ga2230', name: 'shleam', version: '2020.0.0'
+    compile group: 'org.json', name: 'json', version: '20190722'
+}
+```
+
+#### Features
 Shleam gives you the following interfaces:
 1. The `Module` base class.
 2. The `Function` interface.
@@ -80,19 +94,6 @@ b robot sleep 2000
 b robot rgb 0 0 255
 ```
 I can upload this file to the program through the `Server` interface, by just typing `runtime load [script contents]` when I connect to my robot.
-
-### Examples
-TBD
-
-### Installation
-This project is synced to Maven Central, meaning all you have to do in order to install it is to add it to your `build.grade` file:
-
-```groovy
-dependencies{
-    compile group: 'com.ga2230', name: 'shleam', version: '2020.0.0'
-    compile group: 'org.json', name: 'json', version: '20190722'
-}
-```
 
 ### Contributing
 You are more then welcome to contribute to the project.
