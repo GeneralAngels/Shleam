@@ -146,7 +146,7 @@ public class Module {
         if (this.id.equalsIgnoreCase(id))
             return this;
         // Make sure the call is not for "master"
-        if (this.id.equalsIgnoreCase("master"))
+        if (id.equalsIgnoreCase("master"))
             return this;
         // Search through
         for (Module child : this.children) {
