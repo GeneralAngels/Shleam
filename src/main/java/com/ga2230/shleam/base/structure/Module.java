@@ -143,7 +143,7 @@ public class Module {
      */
     public Module descendant(String id) {
         // Make sure we are not that ID
-        if (this.id.equalsIgnoreCase(id))
+        if (id.equalsIgnoreCase(this.id))
             return this;
         // Make sure the call is not for "master"
         if (id.equalsIgnoreCase("master"))

@@ -6,8 +6,13 @@ import com.ga2230.shleam.base.structure.Result;
 
 public class FRCModule extends Module {
 
+    private long timeOffset = 0;
+
     public FRCModule(String id) {
         super(id);
+
+        // Set the time offset
+        this.timeOffset = millis();
 
         // Register a special sleep command for async autonomous
         register("sleep", new Function() {
@@ -75,7 +80,7 @@ public class FRCModule extends Module {
      * @return System time.
      */
     protected long millis() {
-        return System.currentTimeMillis();
+        return System.currentTimeMillis() - this.timeOffset;
     }
 
 }

@@ -7,6 +7,7 @@ Shleam is an overlay library, created by General Angels, to give FRC teams a sim
  
 ### Examples
 [ShleamBot](https://github.com/GeneralAngels/ShleamBot)
+
 [ShleamDashboard](https://github.com/GeneralAngels/ShleamDashboard)
 
 ### Installation
@@ -14,7 +15,7 @@ This project is synced to Maven Central, meaning all you have to do in order to 
 
 ```groovy
 dependencies{
-    compile group: 'com.ga2230', name: 'shleam', version: '2020.0.1'
+    compile group: 'com.ga2230', name: 'shleam', version: '2020.0.2'
     compile group: 'org.json', name: 'json', version: '20190722'
 }
 ```
